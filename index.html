@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Google Drive</title>
+</head>
+
+<body>
+    <div class="wrapper align-items-center" style="margin-top:10rem;">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-6 offset-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center">
+                                <div class="ms-header-text">
+                                    <h4 class="mt-0 header-title">Google Drive File Download</h4>
+                                </div>
+                            </div>
+                            <div class="form-group col-4 offset-4">
+                                <form class="googleDriveFileDownloadForm" method="POST" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label>File Link</label>
+                                        <input type="text" class="form-control" name="link" id="url" />
+                                    </div>
+                                    <div class="form-group">
+                                        <div>
+                                            <button type="submit"
+                                                class="btn btn-block btn-success waves-effect waves-light">
+                                                Submit
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".googleDriveFileDownloadForm").validate({
+            rules: {
+                link: {
+                    required: true,
+                },
+            },
+            messages: {
+                link: {
+                    required: 'Please insert download link',
+                },
+            },
+            errorPlacement: function (label, element) {
+                label.addClass('mt-2 text-danger');
+                label.insertAfter(element);
+            },
+        });
+    });
+
+    $(document).on('submit', '.googleDriveFileDownloadForm', function (event) {
+        event.preventDefault();
+        let form = $("#url").val();
+        let file_id = form.split('/')[5];
+        let download_url = 'https://drive.google.com/uc?export=download&id=' + file_id;
+        window.open(download_url, '_self');
+    });
+</script>
+
+</html>
