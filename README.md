@@ -7,7 +7,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/ssabit/google_drive_file_download?style=flat-square)
 ![GitHub contributors](https://img.shields.io/github/contributors/ssabit/google_drive_file_download?style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/ssabit/google_drive_file_download?color=red&style=flat-square)
-![GitHub license](https://img.shields.io/github/license/ssabit/google_drive_file_download?style=flat-square)
+![GitHub license](https://img.shields.io/github/LICENSE/ssabit/google_drive_file_download?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/ssabit/google_drive_file_download?style=flat-square)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ssabit/google_drive_file_download?style=flat-square)
 ![GitHub stars](https://img.shields.io/github/stars/ssabit/google_drive_file_download?style=flat-square)
