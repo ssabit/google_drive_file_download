@@ -2,7 +2,6 @@
 
 
 <!--- See https://shields.io for others or to customize this set of shields.  --->
-<!--- See https://shields.io for others or to customize this set of shields.  --->
 ![GitHub language count](https://img.shields.io/github/languages/count/ssabit/google_drive_file_download?style=flat-square)
 ![GitHub top language](https://img.shields.io/github/languages/top/ssabit/google_drive_file_download?style=flat-square)
 ![GitHub contributors](https://img.shields.io/github/contributors/ssabit/google_drive_file_download?style=flat-square)
@@ -26,4 +25,4 @@
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](license) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

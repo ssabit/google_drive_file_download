@@ -1,39 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <title>Google Drive</title>
 </head>
 
 <body>
-    <div class="wrapper align-items-center" style="margin-top:10rem;">
+    <div class="wrapper align-items-center" style="margin-top: 10rem">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-md-6 col-lg-6  offset-3 mx-auto">
+                <div class="col-md-6 col-lg-6 offset-3 mx-auto">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex justify-content-center">
                                 <div class="ms-header-text">
-                                    <h4 class="mt-0 header-title">Google Drive File Download</h4>
+                                    <h4 class="mt-0 header-title">
+                                        Google Drive File Download
+                                    </h4>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <form class="googleDriveFileDownloadForm" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
-                                        <label>File Link</label>
+                                        <label>Google Drive Share Link</label>
                                         <input type="text" class="form-control" name="link" id="url" />
                                     </div>
                                     <div class="form-group">
                                         <div>
                                             <button type="submit"
                                                 class="btn btn-block btn-success waves-effect waves-light">
-                                                Submit
+                                                Download
                                             </button>
-
                                         </div>
                                     </div>
                                 </form>
@@ -51,7 +52,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
 <script>
     $(document).ready(function () {
-        $(".googleDriveFileDownloadForm").validate({
+        $('.googleDriveFileDownloadForm').validate({
             rules: {
                 link: {
                     required: true,
@@ -71,9 +72,21 @@
 
     $(document).on('submit', '.googleDriveFileDownloadForm', function (event) {
         event.preventDefault();
-        let form = $("#url").val();
+
+        let form = $('#url').val();
+        let download_url;
         let file_id = form.split('/')[5];
-        let download_url = 'https://drive.google.com/uc?export=download&id=' + file_id;
+        let doc_link = 'https://docs.google.com/document/';
+        let sheets_link = 'https://docs.google.com/spreadsheets/';
+
+        if (form.includes(sheets_link) == true) {
+            download_url = sheets_link + 'export?format=xlsx&id=' + file_id;
+        } else if (form.includes(doc_link) === true) {
+            download_url = doc_link + 'export?format=docx&id=' + file_id;
+        } else {
+            download_url = 'https://drive.google.com/uc?export=download&id=' + file_id;
+        }
+
         window.open(download_url, '_self');
     });
 </script>
